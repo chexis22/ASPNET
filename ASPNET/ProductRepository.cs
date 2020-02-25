@@ -26,6 +26,13 @@ namespace ASPNET
                 new { id = id });
 
         }
+
+        public void UpdateProduct(Product product)
+        {
+            _conn.Execute("UPDATE Products SET Name = @name, Price = @price WHERE ProductID = @id",
+
+                new { name = product.Name, price = product.Price, id = product.ProductID });
+        }
     }
 
 }
